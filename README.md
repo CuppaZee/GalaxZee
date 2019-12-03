@@ -1,6 +1,6 @@
-# CuppaZee (galaxzee)
+# GalaxZee
 
-CuppaZee
+GalaxZee is the next-generation CuppaZee Web Client.
 
 ## Install the dependencies
 ```bash
