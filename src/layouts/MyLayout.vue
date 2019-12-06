@@ -1,92 +1,69 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          icon="menu"
-          aria-label="Menu"
-        />
-
+      <q-toolbar :style="$q.dark.isActive?'background-color:#101010':''">
+        <div>
+          <q-btn flat round icon="mdi-chevron-left"/>
+        </div>
         <q-toolbar-title>
-          Quasar App
+          CuppaZee
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div><q-btn @click="$q.dark.toggle()" flat round icon="mdi-reload"/></div>
       </q-toolbar>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-2"
-    >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
+    <q-footer :style="`${$q.dark.isActive?`background-color:#101010!important;`:``}padding-bottom:env(safe-area-inset-bottom);`" elevated>
+      <q-tabs v-if="true||['user','clans','tools','guide','more'].includes($route.path.split('/').filter(i=>i).join('/'))" switch-indicator dense>
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-home"
+          to="/"
+          exact
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-shield-star"
+          to="/clans"
+          exact
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-tools"
+          to="/tools"
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-account"
+          to="/user"
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-earth"
+          to="/global"
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-menu"
+          to="/more"
+        />
+        <q-route-tab
+          style="padding:0;"
+          dense
+          icon="mdi-test-tube"
+          to="/lab"
+        />
+      </q-tabs>
+    </q-footer>
   </q-layout>
 </template>
 

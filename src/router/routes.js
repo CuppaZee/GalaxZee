@@ -4,7 +4,21 @@ const routes = [
     path: '/',
     component: () => import('layouts/MyLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Home/Index.vue') }
+    ]
+  },
+  {
+    path: '/more',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/More/Index.vue') }
+    ]
+  },
+  {
+    path: '/authsuccess/:x/:y',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Home/Index.vue') }
     ]
   }
 ]
