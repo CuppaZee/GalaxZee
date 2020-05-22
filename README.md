@@ -1,3 +1,5 @@
+# This was an experimental website. Please see our main Monorepo for our actual website.
+
 # GalaxZee
 
 GalaxZee is the next-generation CuppaZee Web Client.
